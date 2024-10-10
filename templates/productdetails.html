@@ -1,0 +1,82 @@
+{% extends "partials/base.html" %}
+{%load static%}
+{%block title%}Product Details{%endblock title%}
+ 
+<br>
+<br>
+<br>
+<br>
+   {% block mainbar_2 %}
+   {% if request.user.is_authenticated  %}
+<ul class="nav  p-25  justify-content-between ">
+  <li class="nav-item">
+    <div class="dropdown_2">
+        <li class="btn bg-info-dark " data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link text-dark" href="#">Category</a>
+        </li>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'IP16' %}">Iphone16</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP15' %}">Iphone15</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP14' %}">Iphone14</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP13' %}">Iphone13</a></li>
+  </ul>
+    </div>
+
+  <li class="btn "  aria-expanded="false">
+    <a class="nav-link text-dark " href="#">Orders</a>
+  </li>
+{% else %}
+  <li class="btn  "  aria-expanded="false">
+    <a class="nav-link text-dark  " href="#">Register</a>
+  </li>
+  <li class="btn  "  aria-expanded="false">
+    <a class="nav-link " href="#">LogIn</a>
+  </li>
+
+{% endif %}
+</ul>
+{% endblock mainbar_2 %}
+
+{% block main-content %}
+   <div class="container">
+    <div class="row flex justify-content-between">
+        <div class="img2 col-lg-5 mt-5">
+            <img src="{{product.product_image.url}}" class="image col-xs-6 col-sm-12 col-lg-12 mt-3 text-sm-center 
+                w-100 h-75 " alt="">
+        </div>
+        <div class="productdetail col-lg-5">
+            <h1 style=" font-family: Georgia; font-size: 50px;">{{ product.title }}</h1>
+            <div class="fw-bold text-danger">
+                <h5>$.{{ product.discount_price }}/= </h5>
+                <small class="text-decoration-line-through text-muted fs-5"><del> $.{{ product.selling_price }}/= </del></small>
+                <br><br>
+                <h4 class="text-success ">Product Features</h4>
+                <ul class="fs-8 text-dark" style="font-family: Rajdhani;">
+                    <li>{{ product.description }}</li>
+                    <li>Composition : {{ product.composition }}</li>
+                    <li>USe : {{ product.prodapp }}</li>
+                </ul>
+                
+                <div class="buttons row flex" style="font-family: Rajdhani;">
+                    <form action="/add-to-cart" class="d-inline  px-5">
+                    <button type="submit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1
+                        btn-lg text-decoration-none text-white">
+                        <input type="hidden" name="prod_id" value="{{ product.id }}"/>
+                        <div class="nav-item">
+                        <img class="nav-link centered" src="{% static 'svgs.images/add-to-cart-svgrepo-com.svg' %}" alt="cart">__Add to cart__
+                        </div>
+                    </button>
+                    </form>
+<form action="" class="d-inline">
+
+                        <a href="{% url 'showcart' %}" class=" btn btn-warming shadow px-5 py-2 ms-4 bg-warning p-2">__Buy Now__</a>
+
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+<br>
+<br>
+{% endblock main-content %}

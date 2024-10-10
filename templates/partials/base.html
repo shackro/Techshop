@@ -1,0 +1,161 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="icon" href="{% static 'svgs.images/apple-svgrepo-com.svg' %}" type="image/svg+xml">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{%  static 'styles2.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Todays OFFERS | {% block title %}{% endblock title %} </title>
+</head>
+<body class=""> 
+
+    <nav class="navbar navbar-expand-lg bg-dark-subtle fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home1' %}"><img src="{% static 'svgs.images/apple-svgrepo-com (1).svg' %}" alt="log"></a>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <a href="{% url 'search' %}"><button class="btn btn-outline-success ">
+                    <img src="{% static 'svgs.images/search-svgrepo-com.svg' %}" alt="search" style="width: 20px; height: 20px;">
+                </button></a>
+            </form>
+           
+            <div class="dropdown ">
+                <button class="btn btn-dark " data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'svgs.images/menu-svgrepo-com.svg' %}" alt="menu" style="width: 20px; height: 20px;">
+                </button>
+                
+            <ul class="dropdown-menu  justify-content-center ">
+              <div class="p-18 bg-white bg-opacity-10 border border-info border-start-0 rounded-end">
+                  {% if request.user.is_authenticated  %}
+              <li class="nav-item p-12">
+                  <form method="" action="">
+                <a class="nav-link" href="{% url 'profile' %}"><img src="{% static 'svgs.images/profile-plus-round-1343-svgrepo-com.svg' %}" alt="profile"> Profile    </a>
+                  </form>
+              </li>
+              </div>
+              <li class="nav-item p-6 bg-secondary bg-opacity-10 border border-info border-start-0 rounded-end">
+                  <form method="" action="">
+                <a class="nav-link p-6" href="{% url 'showcart' %}"><img src="{% static 'svgs.images/add-to-cart-svgrepo-com.svg' %}" alt="cart"> Cart </a>
+                  </form>
+              </li>
+                <div class="p-8 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                 <li class="nav-item p-6">
+                     <form method="" action="">
+                    <a class="nav-link p-6" href="{% url 'registration' %}"><img src="{% static 'svgs.images/favorite-profile-svgrepo-com.svg' %}" alt="fav"> Favorite </a>
+                     </form>
+                 </li>
+                </div>
+                        
+                <li class=" p-8 bg-primary bg-opacity-10 border border-info border-start-0 rounded-end ">
+                    <form method="post" action="{% url 'logout' %}">
+                <a class="nav-link p-6" href="{% url 'passwordchange' %}"><img src="{% static 'svgs.images/settings-svgrepo-com.svg' %}" alt="settings"> Change  __password </a>
+                    </form>
+                </li>
+                <div class="p-8 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                     <li class="nav-item p-6">
+                         <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger"><img src="{% static 'svgs.images/logout-multimedia-ui-svgrepo-com.svg' %}" alt="logout">Logout</button>
+                         </form>
+                    </li>
+                </div>
+                
+              </ul>
+            {% else %}   
+            <li class="btn  bg-primary"  aria-expanded="false">
+                <a class="nav-link text-dark " href="{% url 'registration' %}">Register</a>
+            </li>
+            <li class="btn  bg-success"  aria-expanded="false">
+                 <a class="nav-link " href="{% url 'signin' %}">LogIn</a>
+            </li>
+  
+            {% endif %}        
+                
+            </div>
+            
+
+            
+            
+    </div>
+    </nav>
+    
+    
+   <section class="section-main">
+   
+   {% block mainbar_2 %}
+   {% if request.user.is_authenticated  %}
+<ul class="nav  p-25  justify-content-between ">
+  <li class="nav-item">
+    <div class="dropdown_2">
+        <li class="btn bg-info-dark " data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link text-dark" href="#">Category</a>
+        </li>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'IP16' %}">Iphone16</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP15' %}">Iphone15</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP14' %}">Iphone14</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP13' %}">Iphone13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP12' %}">Iphone13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP11' %}">Iphone13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP8' %}">Iphone13</a></li>
+  </ul>
+    </div>
+    <div class="dropdown_2">
+        <li class="btn bg-info-dark " data-bs-toggle="dropdown" aria-expanded="false">
+         <a class="nav-link text-dark" href="#">Refubrished</a>
+        </li>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR15' %}">Iphone_refubrish15</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR14' %}">Iphone_refubrish14</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR13' %}">Iphone_refubrish13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR12' %}">Iphone_refubrish12</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR11' %}">Iphone_refubrish11</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR8' %}">Iphone_refubrish8</a></li>
+  </ul>
+    </div>     
+  <li class="btn "  aria-expanded="false">
+    <a class="nav-link text-dark " href="#">Orders</a>
+  </li> 
+{% endif %}
+</ul>
+{% endblock mainbar_2 %}
+   
+{% block banner %} {% endblock banner %}
+   
+{% block inform %}{% endblock inform %}
+   
+
+   
+{% block main-content %} {% endblock main-content %}
+{% block payment %} {% endblock payment %}
+    
+ 
+<footer>
+    
+    <div class="p-2 mb-2 bg-dark-subtle text-dark-emphasis fixed-bottom">
+        <div class="container text-center">
+            <div class="row">
+    <div class="col-7">
+    <p class="text-body-emphasis">Copyright © 2023. All rights reserved.<br>
+    || Developend by :Techhousecoder</p></div>
+        <div class="col-5">
+    <a class="nav-link bg-danger-subtle" href="{% url 'aboutus'%}">AboutUS</a>  
+    <a class="nav-link bg-danger-subtle " href="{%url 'contactus'%}">Contact Us</a>
+    </div>
+    </div>
+    </div>
+    </div>
+</footer>
+</section> 
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+</html>

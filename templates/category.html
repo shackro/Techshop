@@ -1,0 +1,99 @@
+{% extends "partials/base.html" %}
+{%load static%}
+{%block title%}Category{%endblock title%}
+ 
+<br>
+<br>
+<br>
+<br>
+
+   {% block mainbar_2 %}
+   {% if request.user.is_authenticated  %}
+<ul class="nav  p-8  justify-content-start">
+  <li class="nav-item">
+    <div class="dropdown_2">
+        <li class="btn bg-info-dark " data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link text-dark" href="#">Category</a>
+        </li>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'IP16' %}">Iphone16</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP15' %}">Iphone15</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP14' %}">Iphone14</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP13' %}">Iphone13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP12' %}">Iphone12</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP11' %}">Iphone11</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP10' %}">Iphone10</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP9' %}">Iphone9</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IP8' %}">Iphone8</a></li>
+  </ul>
+    </div>
+  
+    <div class="dropdown_2">
+        <li class="btn bg-info-dark " data-bs-toggle="dropdown" aria-expanded="false">
+         <a class="nav-link text-dark" href="#">Refubrished</a>
+        </li>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR15' %}">Iphone_refubrish15</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR14' %}">Iphone_refubrish14</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR13' %}">Iphone_refubrish13</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR12' %}">Iphone_refubrish12</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR11' %}">Iphone_refubrish11</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR11' %}">Iphone_refubrish10</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR11' %}">Iphone_refubrish9</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'IPR8' %}">Iphone_refubrish8</a></li>
+  </ul>
+    </div>       
+  <li class="btn "  aria-expanded="false">
+    <a class="nav-link text-dark " href="{% url 'checkout' %}">Orders</a>
+  </li>    
+{% else %}   
+  <li class="btn  "  aria-expanded="false">
+    <a class="nav-link text-dark  " href="{% url 'registration' %}">Register</a>
+  </li>
+  <li class="btn  "  aria-expanded="false">
+    <a class="nav-link " href="{% url 'signin' %}">LogIn</a>
+  </li>
+  
+{% endif %}
+</ul>
+{% endblock mainbar_2 %}
+
+{% block main-content %}
+    <div class="container my-5">
+    <div class="navbar-brand border border-info"><a class="navbar-brand text-warning bg-dark" href="{% url 'home1' %}"><img src="{% static 'svgs.images/home-smile-svgrepo-com.svg' %}" class="d-block w-100" alt="Home"></a></div>
+   
+    <div class="row">
+    
+        <div class="col-sm-3">
+        <div class="list-group">
+            {% for val in title %}
+                <a href ='{% url 'category-title' val.title %}' class="list-group-item list-group-item-action" aria-current="true">
+                {{ val.title }}
+                </a>
+            {% endfor %}
+        </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                {% for prod in product %}
+                    <div class="col text-center mb-4">
+                    <a href="{% url 'product-detail' prod.id %}" class="btn">
+                        <div>
+                          <img src="{{prod.product_image.url}}" width="300px" height="250px" />
+                            <div class="fw-bold">{{ prod.title }} </div>
+                            <div class="fw-bold text-danger">
+                                $.{{ prod.discount_price }}/-
+                                <small class="fw-light text-decoration-line-through">{{ prod.selling_price }}</small>
+                            </div>
+                            
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    
+    </div>
+{% endblock main-content %}

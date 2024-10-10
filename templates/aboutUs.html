@@ -1,0 +1,54 @@
+{% extends "partials/base.html" %}
+{%load static%}
+{%block title%}About{%endblock title%}
+
+{% block banner %}
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/ss1.jpeg' %}" class="d-block w-100" alt="image1">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/ss2.jpeg' %}" class="d-block w-100" alt="image2">
+    </div>
+     <div class="carousel-item">
+      <img src="{% static 'images/ss3.jpeg' %}" class="d-block w-100" alt="image3">
+    </div>
+      
+     <div class="carousel-item">
+      <img src="{% static 'images/ss6.jpeg' %}" class="d-block w-100" alt="image4">
+    </div>
+      
+    <div class="carousel-item">
+      <img src="{% static 'images/ss4.jpeg' %}" class="d-block w-100" alt="image5">
+    </div>
+      
+    <div class="carousel-item">
+      <img src="{% static 'images/ss5.jpeg' %}" class="d-block w-100" alt="image6">
+    </div>
+      
+    <div class="carousel-item">
+      <img src="{% static 'images/ss7.jpeg' %}" class="d-block w-100" alt="image7">
+    </div>
+
+  </div>
+
+</div>
+    
+{% endblock banner %}
+
+{% block inform %}
+<div class="container">
+    <div class ="row bg-success text-center p-5 text-white border-bottom shadow">
+        <h1>
+            Products
+        </h1>
+        <small class="fs-5">  
+            Discover the latest iPhones and smartwatches at unbeatable prices! Experience cutting-edge technology, sleek designs,
+            and unmatched performance. Don’t miss our limited-time offers and exclusive deals. Stay ahead with the 
+            newest features and innovations. Shop now and elevate your lifestyle with our premium gadgets!
+        </small>
+    </div>
+    
+</div>
+{% endblock inform %}

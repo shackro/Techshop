@@ -1,0 +1,91 @@
+{% extends "partials/base.html" %}
+{%load static%}
+{%block title%}Category{%endblock title%}
+ 
+<br>
+<br>
+<br>
+<br>
+
+
+{% block main-content %}
+    <div class="container my-5">
+    <div class="navbar-brand border border-info">
+        <a class="navbar-brand text-warning bg-dark" href="{% url 'home1' %}">
+            <img src="{% static 'svgs.images/home-smile-svgrepo-com.svg' %}" class="d-block w-100" alt="Home"></a></div>
+    <div class="row">
+        <div class="col-sm-3">
+        <div class="list-group">
+            {% for val in title %}
+                <a href ='{% url 'category-title' val.title %}' class="list-group-item list-group-item-action" aria-current="true">
+                {{ val.title }}
+                </a>
+            {% endfor %}
+        </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                {% for prod in product %}
+                    <div class="col text-center mb-4">
+                    <a href="{% url 'product-detail' prod.id %}" class="btn">
+                        <div>
+                          <img src="{{prod.product_image.url}}" width="300px" height="250px" />
+                            <div class="fw-bold">{{ prod.title }} </div>
+                            <div class="fw-bold text-danger">
+                                $.{{ prod.discount_price }}/-
+                                <small class="fw-light text-decoration-line-through">{{ prod.selling_price }}</small>
+                            </div>
+                            
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.06s;animation-name: none;">
+        <div class ="goodness iphones smbg">
+            <a href="{% url 'category' 'IP16' %}">
+                <div class="goodnessaccnt text-center">
+                    <img src="{% static 'images/p1.jpg' %}" class="img-responsive" alt="product1">
+                    <p class ="iphonename">Iphone 16</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+     <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.06s;animation-name: none;">
+        <div class ="goodness iphones2 smbg2">
+            <a href="{% url 'product-detail' prod.id %}">
+                <div class="goodnessaccnt text-center">
+                    <img src="{% static 'images/p2.jpg' %}" class="img-responsive" alt="product1">
+                    <p class ="iphonename">Iphone 15</p>
+                </div>
+            </a>
+        </div>
+    </div>   
+
+
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.06s;animation-name: none;">
+        <div class ="goodness iphones3 smbg3">
+            <a href="{% url 'category' 'IP14' %}">
+                <div class="goodnessaccnt text-center">
+                    <img src="{% static 'images/p3.jpg' %}" class="img-responsive" alt="product1">
+                    <p class ="iphonename">Iphone 14 pro</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+ </div>  
+    
+    
+</div>
+
+{% endblock main-content %}

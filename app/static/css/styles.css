@@ -1,0 +1,525 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    padding: 10px;
+    color: white;
+}
+
+.logo img {
+
+    height: 30px;
+    border-image: 50%;
+    border-radius: 50%;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #61dafb;
+    border: none;
+    cursor: pointer;
+}
+
+.user-menu select {
+    padding: 10px;
+}
+
+.carousel {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 60%;
+    max-width: 65%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.carousel-images img {
+    position: static;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 70%;
+    height: 40%;
+    opacity: 80%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+.carousel-image.active {
+    opacity: 1;
+}
+
+.carousel-inner img {
+    width: 100%; /* Ensures images take full width */
+    height: 100%; /* Maintains aspect ratio */
+}
+
+.carousel {
+    margin: 20px auto; /* Centers the carousel */
+    max-width: 800px; /* Sets a maximum width for the carousel */
+    border-radius: 10px; /* Rounds the corners of the carousel */
+    overflow: hidden; /* Ensures no overflow of images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background for control icons */
+    border-radius: 50%; /* Rounds the control icons */
+}
+
+.carousel-indicators button {
+    background-color: #000; /* Black dots for indicators */
+}
+
+.carousel-indicators .active {
+    background-color: #007bff; /* Active dot color */
+}
+
+.container-fluid {
+    text-align: center; /* Centers the text in the container */
+    margin-top: 20px; /* Adds space above the container */
+}
+
+
+.weekly-offers {
+    padding-left: 50px;
+    padding-bottom: 60px;
+    padding-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+.weekly-offers H2 {
+    border-bottom-style: solid;
+    background-color: #7b7777;
+
+
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-card {
+    background-color: #9c9eae;
+    border: 4px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(53.33% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    border-radius: 8px;
+    width: 80%;
+    height: 50%;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card button  {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #61dafb;
+    border: none;
+    cursor: pointer;
+}
+.product-card button img {
+    margin: 3px;
+    width: 18px;
+        height: 18px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 10px;
+}
+
+/* Top bar styles */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202020;
+    padding: 10px 20px;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-img {
+    height: 30px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.search-bar form {
+    display: flex;
+    width: 80%;
+    max-width: 450px;
+}
+
+.search-input {
+    width: 70%;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 40%;
+}
+
+.search-button {
+    background-color: #303030;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 0 2px 2px 0;
+}
+
+.top-bar-icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.avatar {
+    margin-left: 20px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.avatar img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    border-bottom: 1px solid #404040;
+}
+
+.dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.dropdown ul li a, .dropdown ul li button {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2a2a2a;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropdown ul li a:hover, .dropdown ul li button:hover {
+    background-color: #383838;
+}
+
+/* Light Theme (Default) */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.light-mode .top-bar {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-mode .search-input {
+    border-color: #aaa;
+}
+
+body.light-mode .dropdown {
+    background-color: #f0f0f0;
+}
+
+body.light-mode .dropdown ul li a, .body.light-mode .dropdown ul li button {
+    color: #333;
+}
+
+body.light-mode .dropdown ul li a:hover, body.light-mode .dropdown ul li button:hover {
+    background-color: #ddd;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .top-bar {
+    background-color: #202020;
+}
+
+body.dark-mode .dropdown {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .dropdown ul li a, .body.dark-mode .dropdown ul li button {
+    color: #fff;
+}
+
+body.dark-mode .dropdown ul li a:hover, body.dark-mode .dropdown ul li button:hover {
+    background-color: #383838;
+}
+
+/* Light Theme (Default) */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.light-mode .top-bar {
+    background-color: #fff;
+    color: #333;
+}
+
+body.light-mode .search-input {
+    border-color: #aaa;
+}
+
+body.light-mode .dropdown {
+    background-color: #f0f0f0;
+}
+
+body.light-mode .dropdown ul li a, .body.light-mode .dropdown ul li button {
+    color: #333;
+}
+
+body.light-mode .dropdown ul li a:hover, body.light-mode .dropdown ul li button:hover {
+    background-color: #ddd;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .top-bar {
+    background-color: #202020;
+}
+
+body.dark-mode .dropdown {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .dropdown ul li a, .body.dark-mode .dropdown ul li button {
+    color: #fff;
+}
+
+body.dark-mode .dropdown ul li a:hover, body.dark-mode .dropdown ul li button:hover {
+    background-color: #383838;
+}
+/* Styling for the SVG icons */
+.icon-btn img {
+    width: 24px; /* Set the width for the SVG icons */
+    height: 24px; /* Set the height for the SVG icons */
+    display: inline-block;
+    vertical-align: middle; /* Ensure vertical alignment */
+    cursor: pointer; /* Show pointer cursor for clickable icons */
+}
+
+.search-button img {
+    width: 20px; /* Adjust the size specifically for the search button */
+    height: 20px;
+}
+
+.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .icon-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .search-button img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .avatar img {
+        width: 36px;
+        height: 36px;
+    }
+}
+.product-row {
+    display: flex;                /* Use flexbox to arrange items in a row */
+    overflow-x: auto;            /* Enable horizontal scrolling */
+    padding: 10px;               /* Add some padding */
+    gap: 10px;                   /* Space between the product cards */
+}
+
+.product-card {
+    min-width: 200px;            /* Set a minimum width for each card */
+    flex: 0 0 auto;              /* Prevent flex items from growing or shrinking */
+    border: 1px solid #ccc;      /* Optional: Add a border to the product card */
+    border-radius: 5px;          /* Optional: Add rounded corners */
+    padding: 10px;               /* Optional: Add padding inside the card */
+    text-align: center;          /* Center text inside the card */
+}
+
+.product-card img {
+    max-width: 80%;             /* Ensure the image fits within the card */
+    height: auto;                /* Maintain the aspect ratio */
+}
+
+/* Container for the product cards */
+.product-container {
+    display: flex;               /* Use flexbox for layout */
+    overflow-x: auto;           /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap scrolling effect */
+    padding: 10px;              /* Padding around the container */
+}
+
+/* Individual product card styling */
+.product-card {
+    flex: 0 0 calc(25% - 20px); /* Each card takes up 25% of the container width minus margins */
+    margin: 10px;               /* Margin between cards */
+    border: 1px solid #ccc;     /* Border around each card */
+    border-radius: 8px;         /* Rounded corners */
+    padding: 10px;              /* Padding inside each card */
+    scroll-snap-align: start;   /* Align cards at the start when scrolling */
+    background-color: #fff;     /* White background for cards */
+}
+
+/* Image styling */
+.product-card img {
+    max-width: 100%;            /* Ensure image fits within the card */
+    height: auto;               /* Maintain aspect ratio */
+    border-radius: 4px;        /* Slightly round image corners */
+}
+
+/* Button styling */
+.product-card button {
+    background-color: #28a745;  /* Green background for buttons */
+    color: white;                /* White text color */
+    border: none;                /* No border */
+    padding: 10px;              /* Padding inside buttons */
+    cursor: pointer;             /* Pointer cursor on hover */
+}
+
+.product-card button:hover {
+    background-color: #218838;   /* Darker green on hover */
+}
+
+/* Container for the product cards */
+.product-container {
+    display: flex;               /* Use flexbox for layout */
+    overflow-x: auto;           /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap scrolling effect */
+    padding: 10px;              /* Padding around the container */
+}
+
+/* Individual product card styling */
+.product-card {
+    flex: 0 0 calc(25% - 20px); /* Default to 4 cards per row */
+    margin: 10px;               /* Margin between cards */
+    border: 1px solid #ccc;     /* Border around each card */
+    border-radius: 8px;         /* Rounded corners */
+    padding: 10px;              /* Padding inside each card */
+    scroll-snap-align: start;   /* Align cards at the start when scrolling */
+    background-color: #fff;     /* White background for cards */
+}
+
+/* Image styling */
+.product-card img {
+    max-width: 100%;            /* Ensure image fits within the card */
+    height: auto;               /* Maintain aspect ratio */
+    border-radius: 4px;        /* Slightly round image corners */
+}
+
+/* Button styling */
+.product-card button {
+    background-color: #28a745;  /* Green background for buttons */
+    color: white;                /* White text color */
+    border: none;                /* No border */
+    padding: 10px;              /* Padding inside buttons */
+    cursor: pointer;             /* Pointer cursor on hover */
+}
+
+.product-card button:hover {
+    background-color: #218838;   /* Darker green on hover */
+}
+
+/* Responsive Styles */
+
+/* For screens smaller than 1200px (3 cards per row) */
+@media (max-width: 1200px) {
+    .product-card {
+        flex: 0 0 calc(33.33% - 20px); /* Adjust to 3 cards per row */
+    }
+}
+
+/* For screens smaller than 992px (2 cards per row) */
+@media (max-width: 992px) {
+    .product-card {
+        flex: 0 0 calc(50% - 20px); /* Adjust to 2 cards per row */
+    }}
